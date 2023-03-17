@@ -9,7 +9,7 @@ npm install capacitor-plugin-taskremove
 npx cap sync
 ```
 
-## API
+<!-- ## API
 
 <docgen-index>
 
@@ -34,4 +34,4 @@ echo(options: { value: string; }) => Promise<{ value: string; }>
 
 --------------------
 
-</docgen-api>
+</docgen-api> -->

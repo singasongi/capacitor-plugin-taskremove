@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.nodetalks.plugins.taskremove">
         <application>
-            <service android:name="com.nodetalks.plugin.taskremove.TRService" android:enabled="true" android:stopWithTask="false"/>
-            <service android:name="com.nodetalks.plugin.taskremove.TRServiceOreo" android:enabled="true" android:stopWithTask="false"/>
+            <service android:name="com.nodetalks.plugins.taskremove.TRService" android:enabled="true" android:stopWithTask="false"/>
+            <service android:name="com.nodetalks.plugins.taskremove.TRServiceOreo" android:enabled="true" android:stopWithTask="false"/>
     </application>
 </manifest>

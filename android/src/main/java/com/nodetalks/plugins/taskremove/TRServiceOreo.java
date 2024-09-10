@@ -1,5 +1,8 @@
 package com.nodetalks.plugins.taskremove;
 
+// import static android.content.pm.ServiceInfo.FOREGROUND_SERVICE_TYPE_LOCATION;
+
+import android.content.pm.ServiceInfo;
 import android.util.Log;
 import android.app.Service;
 import android.os.Binder;
@@ -32,7 +35,18 @@ public class TRServiceOreo extends Service {
             Notification notification = new NotificationCompat.Builder(context,"Background")
                     .setContentTitle("")
                     .setContentText("").build();
-            startForeground(1, notification);
+            // startForeground(1, notification);
+
+            if (Build.VERSION.SDK_INT >= 34) {
+                startForeground(
+                        1,
+                        notification,
+                  ServiceInfo.FOREGROUND_SERVICE_TYPE_LOCATION);
+            }else {
+                startForeground(
+                        1,
+                        notification);
+            }
 
 
             Intent serviceIntent = new Intent(context, TRService.class);

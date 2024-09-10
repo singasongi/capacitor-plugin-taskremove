@@ -20,17 +20,31 @@ public class TaskRemovePlugin extends Plugin {
     @Override
     public void load() {
         super.load();
-        
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            Intent serviceIntent = new Intent(getContext(),TRServiceOreo.class);
-            getContext().startForegroundService(serviceIntent);
+
+        if (Build.VERSION.SDK_INT >= 34) {
         } else {
-            Intent serviceIntent = new Intent(getContext(),TRService.class);
-            getContext().startService(serviceIntent);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                Intent serviceIntent = new Intent(getContext(), TRServiceOreo.class);
+                getContext().startForegroundService(serviceIntent);
+            } else {
+                Intent serviceIntent = new Intent(getContext(), TRService.class);
+                getContext().startService(serviceIntent);
+            }
         }
 
     }
 
+    @PluginMethod
+    public void init(PluginCall call) {
+
+        Intent serviceIntent = new Intent(getContext(), TRServiceOreo.class);
+        getContext().startForegroundService(serviceIntent);
+        // String value = call.getString("value");
+        // JSObject ret = new JSObject();
+        // ret.put("value", implementation.echo(value));
+        // call.resolve(ret);
+    }
+    
     @PluginMethod
     public void echo(PluginCall call) {
         String value = call.getString("value");

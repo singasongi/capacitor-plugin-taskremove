@@ -1,7 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.nodetalks.plugins.taskremove">
+    >
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />
         <application>
-            <service android:name="com.nodetalks.plugins.taskremove.TRService" android:enabled="true" android:stopWithTask="false"/>
-            <service android:name="com.nodetalks.plugins.taskremove.TRServiceOreo" android:enabled="true" android:stopWithTask="false"/>
+            <service android:name="com.nodetalks.plugins.taskremove.TRService" android:enabled="true" android:stopWithTask="false" />
+            <service android:name="com.nodetalks.plugins.taskremove.TRServiceOreo" android:enabled="true" android:stopWithTask="false" android:foregroundServiceType="location"/>
     </application>
 </manifest>
